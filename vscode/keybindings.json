@@ -26,6 +26,12 @@
             "commands": ["workbench.action.files.save", "extension.vim_escape"]
         }
     },
+    // Zen mode.
+    {
+        "key": "z e n",
+        "command": "workbench.action.toggleZenMode",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
 
     /* --- Panes and editors --- */
 
