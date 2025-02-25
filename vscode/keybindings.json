@@ -1,0 +1,151 @@
+[
+    // Do not use the ctrl+c from vim.
+    {
+        "key": "ctrl+c",
+        "command": "-extension.vim_ctrl+c",
+        "when": "editorTextFocus && vim.active && vim.overrideCtrlC && vim.use<C-c> && !inDebugRepl"
+    },
+    // Do not use the ctrl+p from vim.
+    {
+        "key": "ctrl+p",
+        "command": "-extension.vim_ctrl+p",
+        "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+    },
+    // Use ctrl+space to go to normal mode.
+    {
+        "key": "ctrl-space",
+        "command": "extension.vim_escape",
+        "when": "vim.mode == 'Insert' && (editorTextFocus || !inputFocus)"
+    },
+    // Go to normal mode when saving a file.
+    {
+        "command": "runCommands",
+        "key": "ctrl-s",
+        "when": "vim.mode == 'Insert' && (editorTextFocus || !inputFocus)",
+        "args": {
+            "commands": ["workbench.action.files.save", "extension.vim_escape"]
+        }
+    },
+
+    /* --- Panes and editors --- */
+
+    // Close editor.
+    {
+        "key": "space q",
+        "command": "workbench.action.closeActiveEditor",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
+    // Navigate to left pane.
+    {
+        "key": "ctrl-h",
+        "command": "workbench.action.navigateLeft"
+    },
+    // Navigate to bottom pane.
+    {
+        "key": "ctrl-j",
+        "command": "workbench.action.navigateDown"
+    },
+    // Navigate to upper pane.
+    {
+        "key": "ctrl-k",
+        "command": "workbench.action.navigateUp"
+    },
+    // Navigate to right pane.
+    {
+        "key": "ctrl-l",
+        "command": "workbench.action.navigateRight"
+    },
+    // Go to next editor.
+    {
+        "key": "shift-l",
+        "command": "workbench.action.nextEditorInGroup",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
+    // Go to previous editor.
+    {
+        "key": "shift-h",
+        "command": "workbench.action.previousEditorInGroup",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
+    // Show all open editors.
+    {
+        "key": "space ,",
+        "command": "workbench.action.showAllEditors",
+        "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    // Horizontal split.
+    {
+        "key": "space h",
+        "command": "workbench.action.splitEditorRight",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
+    // Vertical split.
+    {
+        "key": "space v",
+        "command": "workbench.action.splitEditorDown",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && ( editorTextFocus || !inputFocus)"
+    },
+    // Move active editor group left.
+    {
+        "key": "ctrl-alt-h",
+        "command": "workbench.action.moveActiveEditorGroupLeft",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
+    // Move active editor group down.
+    {
+        "key": "ctrl-alt-j",
+        "command": "workbench.action.moveActiveEditorGroupDown",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
+    // Move active editor group up.
+    {
+        "key": "ctrl-alt-k",
+        "command": "workbench.action.moveActiveEditorGroupUp",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
+    // Move active editor group right.
+    {
+        "key": "ctrl-alt-l",
+        "command": "workbench.action.moveActiveEditorGroupRight",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    },
+
+    /* --- Left side bar --- */
+
+    // Toggle sidebar.
+    {
+        "key": "space s",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    // Show explorer.
+    {
+        "key": "space e",
+        "command": "workbench.view.explorer",
+        "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    // Show search.
+    {
+        "key": "space f",
+        "command": "workbench.view.search",
+        "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    // Show source control.
+    {
+        "key": "space g",
+        "command": "workbench.view.scm",
+        "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    // Create new file.
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (filesExplorerFocus && !inputFocus)"
+    },
+    // Create new directory.
+    {
+        "key": "s",
+        "command": "explorer.newFolder",
+        "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (filesExplorerFocus && !inputFocus)"
+    }
+]
